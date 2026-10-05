@@ -1,0 +1,647 @@
+:root {
+  --cor-fundo: #f5e7c6;
+  --cor-principal: #82bbe9;
+  --cor-destaque: #854d4d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  background: var(--cor-fundo);
+  color: #111;
+}
+
+.navbar-area {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 20px 0;
+  background: rgba(245, 231, 198, 0.94);
+  backdrop-filter: blur(8px);
+}
+
+.navbar-area .nav-link {
+  color: #111;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.navbar-area .nav-link:hover {
+  background: #111;
+  color: white;
+}
+
+.hero {
+  padding: 70px 0 90px;
+  background: var(--cor-principal);
+  border-bottom: 5px solid #111;
+}
+
+.hero h1 {
+  color: #111;
+  letter-spacing: 8px;
+  text-shadow: 4px 4px 0 rgba(255, 255, 255, 0.7);
+}
+
+.hero h2 {
+  color: #333;
+}
+
+.hero p {
+  max-width: 650px;
+}
+
+.vhs-card {
+  width: 310px;
+  height: 430px;
+  max-width: 100%;
+  background: linear-gradient(145deg, #242424, #080808);
+  border-radius: 22px;
+  padding: 25px;
+  margin: auto;
+
+  box-shadow:
+    15px 20px 0 rgba(0, 0, 0, 0.25),
+    0 25px 50px rgba(0, 0, 0, 0.35);
+
+  transform: rotate(5deg);
+  transition: 0.4s;
+}
+
+.vhs-card:hover {
+  transform: rotate(0deg) translateY(-10px);
+}
+
+.vhs-label {
+  background: #f3e7bd;
+  height: 145px;
+  border-radius: 8px;
+  color: #111;
+
+  padding: 25px 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  box-shadow: inset 0 -8px 0 rgba(0, 0, 0, 0.08);
+}
+
+.vhs-label span {
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+.vhs-label small {
+  margin-top: 10px;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.vhs-reels {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 45px;
+}
+
+.reel {
+  width: 75px;
+  height: 75px;
+
+  background:
+    radial-gradient(
+      circle,
+      #111 0 10px,
+      #aaa 11px 17px,
+      #111 18px 28px,
+      #777 29px 34px,
+      #111 35px
+    );
+
+  border-radius: 50%;
+  border: 5px solid #555;
+
+  box-shadow:
+    inset 0 0 0 4px #222,
+    0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.vhs-line {
+  height: 7px;
+  background: #555;
+  margin-top: 35px;
+  border-radius: 10px;
+}
+
+.vhs-bottom {
+  color: #aaa;
+
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 30px;
+
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.jogos-section {
+  background-color: black;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  border-bottom: 5px solid #111;
+}
+
+.jogos-intro {
+  max-width: 700px;
+}
+
+
+/* Catalogo */
+
+.catalogo {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(250px, 300px));
+  grid-auto-rows: 1fr;
+  gap: 35px;
+  justify-content: center;
+}
+
+.game-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 450px;
+  background: white;
+  border: 5px solid #f5e7c6;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  transition: 0.3s;
+  overflow: hidden;
+}
+
+.game-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
+}
+
+.game-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px;
+}
+
+.game-card .game-image {
+  width: 100%;
+  height: 130px;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.game-card .card-title {
+  margin-top: 15px;
+  margin-bottom: 0;
+  color: #922b2b;
+  font-size: 24px;
+}
+
+.game-card .descricao {
+  flex-grow: 1;
+  margin-top: 10px;
+  margin-bottom: 0;
+  color: #666;
+  line-height: 1.4;
+}
+
+.preco {
+  margin-top: 15px;
+  color: #a86a3d;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.game-card .game-buy-button {
+  display: block;
+  width: 50%;
+  margin: 15px auto 0;
+  padding: 12px 25px;
+  background: var(--cor-destaque);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.game-card .game-buy-button:hover,
+.game-card .game-buy-button:focus {
+  background: #3f0d0d;
+  transform: translateY(-5px);
+}
+
+/* SUPER MARIO */
+
+.mario:hover {
+  background-image: url("/img/jogos/dequpxt-1bebfb58-ca59-4696-8a69-42d40657bede.gif");
+
+  background-repeat: no-repeat;
+
+  background-position: 110% 95%;
+}
+
+/* PAC-MAN */
+
+.pac-man:hover {
+  background-image: url("/img/jogos/pachover1.gif");
+
+  background-repeat: no-repeat;
+
+  background-position: 64% -280%;
+}
+
+/* SONIC */
+
+.sonic:hover {
+  background-image: url("/img/jogos/download.gif");
+
+  background-repeat: no-repeat;
+
+  background-position: -950% 115%;
+
+  background-size: 300px 150px;
+}
+
+/* MARIO KART */
+
+.mario-kart:hover {
+  background-image: url("/img/jogos/Kart.gif");
+
+  background-repeat: no-repeat;
+
+  background-position: 95% 95%;
+
+  background-size: 80px 50px;
+}
+
+/* DONKEY KONG */
+
+.donkey-kong:hover {
+  background-image: url("/img/jogos/da8rd01-70ed376c-5a80-4b82-8393-81d8369165ff.gif");
+
+  background-repeat: no-repeat;
+
+  background-position: 105% 95%;
+
+  background-size: 100px 120px;
+}
+
+/* MORTAL KOMBAT */
+
+.mortal-kombat:hover {
+  background-image:
+    url("/img/jogos/kittana.gif"),
+    url("/img/jogos/kitana-winpose.gif");
+
+  background-repeat: no-repeat, no-repeat;
+
+  background-position:
+    100% 95%,
+    -5% 95%;
+
+  background-size:
+    80px 90px,
+    105px 115px;
+}
+
+/* STREET FIGHTER */
+
+.street-fighter:hover {
+  background-image:
+    url("/img/jogos/riu.gif"),
+    url("/img/jogos/chhun.gif");
+
+  background-repeat: no-repeat, no-repeat;
+
+  background-position:
+    98% 95%,
+    0% 95%;
+
+  background-size:
+    80px 90px,
+    105px 115px;
+}
+
+/* TETRIS */
+
+.tetris:hover {
+  background-image: url("/img/jogos/tetris.gif");
+
+  background-repeat: no-repeat;
+
+  background-position: 95% 100%;
+
+  background-size: 100% 100px;
+}
+
+/* THE KING OF FIGHTERS */
+
+.the-king-of-fighters-97:hover {
+  background-image: url("/img/jogos/fi.gif");
+
+  background-repeat: no-repeat;
+
+  background-position: 110% 95%;
+
+  background-size: 130px 100px;
+}
+
+.sobre {
+  background: var(--cor-fundo);
+  border-bottom: 5px solid #111;
+}
+
+.sobre-intro {
+  max-width: 650px;
+  margin: auto;
+
+  font-size: 18px;
+}
+
+.historia-box {
+  background: #fffdf7;
+
+  border: 3px solid #111;
+
+  border-radius: 25px;
+
+  padding: 45px;
+
+  box-shadow: 10px 10px 0 #111;
+}
+
+.historia-fita {
+  background: linear-gradient(145deg, #292929, #080808);
+
+  width: 280px;
+  height: 200px;
+
+  max-width: 100%;
+
+  margin: auto;
+
+  border-radius: 18px;
+
+  padding: 20px;
+
+  box-shadow:
+    8px 10px 0 #555,
+    0 15px 30px rgba(0, 0, 0, 0.3);
+
+  transform: rotate(-4deg);
+
+  transition: 0.4s;
+}
+
+.historia-fita:hover {
+  transform: rotate(0deg) scale(1.04);
+}
+
+.fita-topo {
+  display: flex;
+  justify-content: space-between;
+
+  color: #aaa;
+
+  font-size: 12px;
+
+  letter-spacing: 2px;
+}
+
+.fita-corpo {
+  display: flex;
+
+  justify-content: space-around;
+
+  align-items: center;
+
+  margin-top: 25px;
+}
+
+.fita-rolo {
+  width: 55px;
+  height: 55px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      #111 0 7px,
+      #999 8px 13px,
+      #222 14px 20px,
+      #777 21px 26px,
+      #111 27px
+    );
+
+  border: 4px solid #555;
+}
+
+.fita-nome {
+  margin-top: 22px;
+
+  background-color: #f3e7bd;
+
+  color: #111;
+
+  text-align: center;
+
+  padding: 8px;
+
+  border-radius: 5px;
+
+  font-weight: bold;
+
+  letter-spacing: 3px;
+
+  font-size: 12px;
+}
+
+.capitulo {
+  font-size: 12px;
+
+  font-weight: bold;
+
+  letter-spacing: 3px;
+
+  color: #8a5a44;
+}
+
+.palavra-rebobina {
+  background-color: #111;
+
+  color: white;
+
+  display: inline-block;
+
+  padding: 12px 25px;
+
+  border-radius: 8px;
+
+  font-weight: bold;
+
+  letter-spacing: 3px;
+
+  margin: 10px 0 15px;
+
+  transform: rotate(-2deg);
+}
+
+.integrante-box {
+  background: #fffdf7;
+
+  border: 3px solid #111;
+
+  border-radius: 20px;
+
+  padding: 30px;
+
+  box-shadow: 7px 7px 0 #111;
+}
+
+.cta-section {
+  background: #111;
+
+  color: white;
+}
+
+.cta-section p {
+  color: rgba(255, 255, 255, 0.75);
+
+  max-width: 700px;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer {
+  margin-top: 0;
+}
+
+footer a {
+  transition: 0.3s;
+}
+
+footer a:hover {
+  transform: translateY(-3px);
+}
+
+@media (max-width: 1000px) {
+
+  .catalogo {
+    grid-template-columns:
+      repeat(2, minmax(250px, 300px));
+  }
+
+  .hero h1 {
+    font-size: 70px;
+  }
+
+  .vhs-card {
+    width: 280px;
+    height: 390px;
+  }
+}
+
+@media (max-width: 700px) {
+
+  .navbar-area {
+    padding: 12px 0;
+  }
+
+  .navbar-area .nav {
+    flex-wrap: wrap;
+  }
+
+  .hero {
+    padding: 50px 15px 70px;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+    letter-spacing: 4px;
+  }
+
+  .hero h2 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 17px;
+  }
+
+  .vhs-card {
+    width: 250px;
+    height: 350px;
+  }
+
+  .vhs-label {
+    height: 115px;
+  }
+
+  .vhs-label span {
+    font-size: 23px;
+  }
+
+  .reel {
+    width: 60px;
+    height: 60px;
+  }
+
+  .catalogo {
+    grid-template-columns: minmax(0, 1fr);
+
+    padding: 0 15px;
+  }
+
+  .game-card {
+    min-height: 430px;
+  }
+
+  .game-card button {
+    width: 60%;
+  }
+
+  .historia-box {
+    padding: 25px;
+  }
+
+  .historia-fita {
+    width: 240px;
+    height: 175px;
+  }
+
+  .fita-rolo {
+    width: 45px;
+    height: 45px;
+  }
+}
+
