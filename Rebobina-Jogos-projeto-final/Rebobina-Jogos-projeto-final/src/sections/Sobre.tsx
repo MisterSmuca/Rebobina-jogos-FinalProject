@@ -10,7 +10,7 @@ function Sobre() {
           </Badge>
 
           <h2 className="display-5 fw-bold mt-3">
-            Quatro pessoas. Uma loja. Mil histórias.
+            Uma pessoa. Uma loja. Mil histórias.
           </h2>
 
           <p className="text-muted sobre-intro">
@@ -43,22 +43,18 @@ function Sobre() {
               <h3 className="fw-bold mt-2">Uma ideia que ganhou forma</h3>
 
               <p>
-                Quatro integrantes, ideias diferentes e uma proposta em comum:
+                Um integrante, apaixonado por jogos clássicos, teve a ideia de
                 criar uma loja online com a cara das antigas locadoras.
               </p>
 
               <p>
                 Assim surgiu a Rebobina, com um catálogo de jogos clássicos e
-                uma identidade inspirada na nostalgia dos anos 1990.
+                uma identidade inspirada na nostalgia dos vintage.
               </p>
 
               <div className="palavra-rebobina">"DÊ O PLAY NA NOSTALGIA."</div>
 
-              <p>
-                Cada parte do projeto ficou com um integrante. O catálogo de
-                jogos é uma das partes da loja e reúne títulos conhecidos de
-                diferentes épocas.
-              </p>
+           
             </Col>
           </Row>
         </div>
@@ -70,9 +66,9 @@ function Sobre() {
 
           <h3 className="fw-bold mt-3">Samuel</h3>
 
-          <p className="mb-2">Responsável pelo universo dos jogos e das músicas.</p>
+          <p className="mb-2">Responsável pelo universo dos jogos.</p>
 
-          <strong>🕹️ Jogos &nbsp; • &nbsp; 🎵 Músicas</strong>
+          <strong>🕹️ Jogos</strong>
         </div>
       </Container>
     </section>

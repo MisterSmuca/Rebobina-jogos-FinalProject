@@ -45,7 +45,7 @@ function Hero() {
             <div className="vhs-card">
               <div className="vhs-label">
                 <span>REBOBINA</span>
-                <small>LOCADORA • 1990</small>
+                <small>LOjA • 1990</small>
               </div>
 
               <div className="vhs-reels">
