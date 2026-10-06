@@ -23,6 +23,47 @@ const midias = [
 const progresso: Record<Etapa, number> = { cadastro: 33, midia: 66, concluida: 100 };
 const emailValido = (v: string) => /^\S+@\S+\.\S+$/.test(v);
 
+const CHAVE_CADASTRO = "rebobina:cadastro";
+
+interface Cadastro {
+  nome: string;
+  email: string;
+  telefone: string;
+}
+
+function lerCadastro(): Cadastro {
+  try {
+    const salvo = localStorage.getItem(CHAVE_CADASTRO);
+    if (salvo) {
+      const dados = JSON.parse(salvo);
+      return {
+        nome: dados.nome ?? "",
+        email: dados.email ?? "",
+        telefone: dados.telefone ?? "",
+      };
+    }
+  } catch {
+    // se o navegador bloquear o storage, segue sem dados salvos
+  }
+  return { nome: "", email: "", telefone: "" };
+}
+
+function salvarCadastro(cadastro: Cadastro) {
+  try {
+    localStorage.setItem(CHAVE_CADASTRO, JSON.stringify(cadastro));
+  } catch {
+    // ignora erro de storage
+  }
+}
+
+function apagarCadastro() {
+  try {
+    localStorage.removeItem(CHAVE_CADASTRO);
+  } catch {
+    // ignora erro de storage
+  }
+}
+
 function CompraModal({ jogo, onClose }: CompraModalProps) {
   const [etapa, setEtapa] = useState<Etapa>("cadastro");
   const [nome, setNome] = useState("");
@@ -32,16 +73,17 @@ function CompraModal({ jogo, onClose }: CompraModalProps) {
   const [tentou, setTentou] = useState(false);
 
   // Zera tudo sempre que um novo jogo é escolhido
-  useEffect(() => {
-    if (jogo) {
-      setEtapa("cadastro");
-      setNome("");
-      setEmail("");
-      setTelefone("");
-      setMidia("");
-      setTentou(false);
-    }
-  }, [jogo]);
+ useEffect(() => {
+  if (jogo) {
+    const cadastro = lerCadastro();
+    setEtapa("cadastro");
+    setNome(cadastro.nome);
+    setEmail(cadastro.email);
+    setTelefone(cadastro.telefone);
+    setMidia("");
+    setTentou(false);
+  }
+}, [jogo]);
 
   const cadastroOk =
     nome.trim().length >= 3 &&
@@ -49,10 +91,21 @@ function CompraModal({ jogo, onClose }: CompraModalProps) {
     telefone.replace(/\D/g, "").length >= 10;
 
   const enviarCadastro = (e: React.FormEvent) => {
-    e.preventDefault();
-    setTentou(true);
-    if (cadastroOk) setEtapa("midia");
-  };
+  e.preventDefault();
+  setTentou(true);
+  if (cadastroOk) {
+    salvarCadastro({ nome, email, telefone });
+    setEtapa("midia");
+  }
+};
+
+const limparDados = () => {
+  apagarCadastro();
+  setNome("");
+  setEmail("");
+  setTelefone("");
+  setTentou(false);
+};
 
   const midiaEscolhida = midias.find((m) => m.id === midia);
 
@@ -108,7 +161,17 @@ function CompraModal({ jogo, onClose }: CompraModalProps) {
                 onChange={(e) => setTelefone(e.target.value)}
                 isInvalid={tentou && telefone.replace(/\D/g, "").length < 10}
                 placeholder="(21) 99999-9999"
-              />
+             
+             />
+<Button
+  type="button"
+  variant="link"
+  size="sm"
+  className="p-0 mt-3 text-muted"
+  onClick={limparDados}
+>
+  Limpar meus dados salvos
+</Button>
               <Form.Control.Feedback type="invalid">
                 Informe DDD + número.
               </Form.Control.Feedback>
