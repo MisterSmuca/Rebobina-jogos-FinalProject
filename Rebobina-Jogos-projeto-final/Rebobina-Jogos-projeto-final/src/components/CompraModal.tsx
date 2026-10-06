@@ -163,6 +163,12 @@ const limparDados = () => {
                 placeholder="(21) 99999-9999"
              
              />
+
+              <Form.Control.Feedback type="invalid">
+                Informe DDD + número.
+              </Form.Control.Feedback>
+            </Form.Group>
+
 <Button
   type="button"
   variant="link"
@@ -172,11 +178,9 @@ const limparDados = () => {
 >
   Limpar meus dados salvos
 </Button>
-              <Form.Control.Feedback type="invalid">
-                Informe DDD + número.
-              </Form.Control.Feedback>
-            </Form.Group>
+
           </Modal.Body>
+
           <Modal.Footer>
             <Button variant="outline-secondary" onClick={onClose}>
               Cancelar
