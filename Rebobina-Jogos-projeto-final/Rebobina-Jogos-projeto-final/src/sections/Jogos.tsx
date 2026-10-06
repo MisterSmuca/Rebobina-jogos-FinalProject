@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { Badge, Button, Card, Container } from "react-bootstrap";
+import CompraModal from "../components/CompraModal";
 
 interface Jogo {
   id: string;
@@ -94,6 +96,8 @@ const jogos: Jogo[] = [
 ];
 
 function Jogos() {
+  const [jogoSelecionado, setJogoSelecionado] = useState<Jogo | null>(null);
+
   return (
     <section id="jogos" className="jogos-section">
       <Container className="py-5">
@@ -126,14 +130,23 @@ function Jogos() {
 
                 <p className="preco">{jogo.preco}</p>
 
-                <Button type="button" className="game-buy-button">
-                  Comprar
-                </Button>
+                <Button
+   type="button"
+  className="game-buy-button"
+  onClick={() => setJogoSelecionado(jogo)}
+>
+  Comprar
+</Button>
               </Card.Body>
             </Card>
           ))}
         </div>
-      </Container>
+           </Container>
+
+      <CompraModal
+        jogo={jogoSelecionado}
+        onClose={() => setJogoSelecionado(null)}
+      />
     </section>
   );
 }

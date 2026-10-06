@@ -644,4 +644,32 @@ footer a:hover {
     height: 45px;
   }
 }
+/* MODAL DE COMPRA */
+
+.game-modal-btn,
+.game-modal-btn:hover,
+.game-modal-btn:focus,
+.game-modal-btn:disabled {
+  background: var(--cor-destaque);
+  border-color: var(--cor-destaque);
+  color: white;
+  font-weight: bold;
+}
+
+.midia-opcao {
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 12px 12px 12px 2.5rem;
+  cursor: pointer;
+}
+
+.midia-opcao.ativa {
+  border-color: var(--cor-destaque);
+  background: var(--cor-fundo);
+}
+
+.midia-opcao label {
+  cursor: pointer;
+  width: 100%;
+}
 
