@@ -1,0 +1,4 @@
+[build]
+base = "Rebobina-Jogos-projeto-final/Rebobina-Jogos-projeto-final"
+command = "npm run build"
+publish = "dist"
